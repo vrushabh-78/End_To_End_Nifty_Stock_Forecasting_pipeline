@@ -30,49 +30,7 @@ LSTM + Prophet
 HDFC Forecast Output
 
 
-🔄 Pipeline Workflow
-Apache Airflow triggers the Azure Data Factory pipeline.
-Azure Data Factory executes the pl_hdfc_master pipeline.
-Databricks fetches HDFC stock data.
-Raw data is stored in the Bronze layer of ADLS Gen2.
-Databricks cleans and transforms the Bronze data into the Silver layer.
-Feature engineering is performed on the processed data.
-Analytics-ready data is stored in the Gold layer.
-LSTM and Prophet models are used for stock price forecasting.
-The final forecast output is stored in ADLS Gen2.
-🥉 Bronze Layer
 
-Contains raw stock market data collected from the source.
-
-ADLS Gen2
-└── bronze/
-🥈 Silver Layer
-
-Contains cleaned, standardized, and validated stock data.
-
-ADLS Gen2
-└── silver/
-🥇 Gold Layer
-
-Contains feature-engineered and analytics-ready data along with forecasting results.
-
-ADLS Gen2
-└── gold/
-🤖 Machine Learning Models
-LSTM
-
-Long Short-Term Memory neural network used for time-series stock price forecasting.
-
-Prophet
-
-Time-series forecasting model used to generate stock price predictions.
-
-🛠️ Technology Stack
-Technology	Purpose
-Python	Programming
-Apache Airflow	Workflow orchestration
-Azure Data Factory	Data pipeline orchestration
-Azure Databricks	Data processing and ML
 PySpark	Distributed data processing
 ADLS Gen2	Cloud data lake storage
 LSTM	Stock forecasting
