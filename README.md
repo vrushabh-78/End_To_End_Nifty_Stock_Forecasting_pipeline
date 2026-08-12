@@ -29,3 +29,54 @@ LSTM + Prophet
       ↓
 HDFC Forecast Output
 ```
+
+## ☁️ Azure Resources
+
+| Resource | Name | Type |
+|---|---|---|
+| Resource Group | `rg-stock-forecast-dev` | Resource Group |
+| Databricks Workspace | `dbw-stock-forecast-dev` | Azure Databricks Service |
+| Data Factory | `adf-stock-forecast-dev` | Data Factory (V2) |
+| Storage Account | `ststockforecastdev01` | ADLS Gen2 |
+
+## 🗂️ Data Lake Structure
+
+The `stockproject` container in ADLS Gen2 is organized as follows:
+
+```text
+stockproject/
+├── bronze/      → Raw HDFC stock data ingested from Yahoo Finance
+├── silver/      → Cleaned & standardized data (PySpark)
+├── gold/        → Feature-engineered, forecast-ready data
+├── artifacts/   → Trained model artifacts
+├── metadata/    → Pipeline metadata / watermark tracking
+└── readable/    → Human-readable exports (e.g. forecast CSVs)
+```
+
+## 📓 Notebook Flow
+
+Notebooks live in the `hdfc_forecast` Databricks workspace folder:
+
+1. `01_fetch_hdfc_bronze` — Fetches HDFC stock data via yfinance, writes to the Bronze layer
+2. `02_bronze_to_silver` — Cleans, validates & standardizes data using PySpark, writes to Silver
+3. `03_silver_to_gold_train_forecast` — Feature engineering, LSTM & Prophet training, writes forecast output to Gold
+
+## 📊 Sample Forecast Output
+`readable/gold/hdfc_forecast.csv`
+
+| forecast_date | ticker | prophet_forecast | lstm_forecast | latest_close_fallback | model_used |
+|---|---|---|---|---|---|
+| 2026-08-07 | HDFCBANK.NS | 895.02 | 740.87 | 734.30 | prophet_lstm |
+| 2026-08-08 | HDFCBANK.NS | 896.94 | 748.75 | 731.00 | prophet_lstm |
+
+## 🔄 Pipeline Orchestration
+The Airflow DAG `trigger_hdfc_adf_pipeline` runs three steps: `start` → `run_pl_hdfc_master` (triggers the Azure Data Factory pipeline via `AzureDataFactoryRunPipelineOperator`) → `end`. Each DAG run's task status (success / running) is tracked directly in the Airflow UI.
+
+## 🖼️ Screenshots
+| Airflow DAG Graph | Pipeline Run (Success) |
+|---|---|
+| ![DAG Graph](ScreenShots/dag_graph.png) | ![DAG Run Success](ScreenShots/dag_run_success.png) |
+
+| Databricks Notebooks | ADLS Gen2 Folder Structure |
+|---|---|
+| ![Notebooks](ScreenShots/databricks_notebooks.png) | ![ADLS Structure](ScreenShots/adls_structure.png) |
