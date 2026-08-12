@@ -1,4 +1,5 @@
 # End-to-End Nifty Stock Forecasting Pipeline
+`![Python](https://img.shields.io/badge/Python-3.x-blue) ![Airflow](https://img.shields.io/badge/Airflow-workflow-orange) ![Azure](https://img.shields.io/badge/Azure-Databricks%20%7C%20ADF%20%7C%20ADLS-0078D4) ![LSTM](https://img.shields.io/badge/Model-LSTM-green) ![Prophet](https://img.shields.io/badge/Model-Prophet-lightgrey)
 
 Automated end-to-end HDFC stock forecasting pipeline using Apache Airflow, Azure Data Factory, Azure Databricks, and Azure Data Lake Storage Gen2, with LSTM and Prophet models following a Medallion Architecture.
 
