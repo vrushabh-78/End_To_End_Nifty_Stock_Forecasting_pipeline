@@ -73,10 +73,15 @@ Notebooks live in the `hdfc_forecast` Databricks workspace folder:
 The Airflow DAG `trigger_hdfc_adf_pipeline` runs three steps: `start` → `run_pl_hdfc_master` (triggers the Azure Data Factory pipeline via `AzureDataFactoryRunPipelineOperator`) → `end`. Each DAG run's task status (success / running) is tracked directly in the Airflow UI.
 
 ## 🖼️ Screenshots
-| Airflow DAG Graph | Pipeline Run (Success) |
-|---|---|
-| ![DAG Graph](ScreenShots/dag_graph.png) | ![DAG Run Success](ScreenShots/dag_run_success.png) |
 
-| Databricks Notebooks | ADLS Gen2 Folder Structure |
+| Airflow DAG Graph | Azure Resources |
 |---|---|
-| ![Notebooks](ScreenShots/databricks_notebooks.png) | ![ADLS Structure](ScreenShots/adls_structure.png) |
+| ![DAG Graph](ScreenShots/WhatsApp_Image_2026-08-09_at_6_31_32_PM.jpeg) | ![Azure Resources](ScreenShots/WhatsApp_Image_2026-08-09_at_6_31_54_PM.jpeg) |
+
+| Databricks Notebooks | DAG Run (Success) |
+|---|---|
+| ![Notebooks](ScreenShots/WhatsApp_Image_2026-08-09_at_6_32_03_PM.jpeg) | ![DAG Run Success](ScreenShots/WhatsApp_Image_2026-08-09_at_6_33_12_PM.jpeg) |
+
+| ADLS Gen2 Folder Structure | Gold Layer Forecast Output |
+|---|---|
+| ![ADLS Structure](ScreenShots/WhatsApp_Image_2026-08-09_at_6_34_12_PM.jpeg) | ![Forecast CSV](ScreenShots/WhatsApp_Image_2026-08-09_at_6_34_47_PM.jpeg) |
