@@ -14,24 +14,6 @@ The workflow is orchestrated using Apache Airflow and Azure Data Factory, while 
 
 ## 🏗️ Architecture
 
-```
-Yahoo Finance
-      ↓
-Apache Airflow
-      ↓
-Azure Data Factory
-      ↓
-Azure Databricks
-      ↓
-ADLS Gen2
-      ↓
-Bronze → Silver → Gold
-      ↓
-LSTM + Prophet
-      ↓
-HDFC Forecast Output
-```
-
 <p align="center">
   <img src="Architecture/architecture_diagram.png" width="420" alt="Pipeline architecture diagram">
 </p>
