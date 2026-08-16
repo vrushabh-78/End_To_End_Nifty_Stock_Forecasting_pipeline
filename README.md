@@ -104,15 +104,15 @@ See the [`Docs`](Docs) folder for additional setup and configuration notes.
 
 | Airflow DAG Graph | Azure Resources |
 |---|---|
-| ![DAG Graph](ScreenShots/dag_graph.jpeg) | ![Azure Resources](ScreenShots/azure_resources.jpeg) |
+| ![DAG Graph](ScreenShots/airflow_dag.png) | ![Azure Resources](ScreenShots/azure_resources.png) |
 
 | Databricks Notebooks | DAG Run (Success) |
 |---|---|
-| ![Notebooks](ScreenShots/databricks_notebooks.jpeg) | ![DAG Run Success](ScreenShots/dag_run_success.jpeg) |
+| ![Notebooks](ScreenShots/databricks_notebooks.png) | ![DAG Run Success](ScreenShots/airflow_dag_run.png) |
 
 | ADLS Gen2 Folder Structure | Gold Layer Forecast Output |
 |---|---|
-| ![ADLS Structure](ScreenShots/adls_structure.jpeg) | ![Forecast CSV](ScreenShots/forecast_csv.jpeg) |
+| ![ADLS Structure](ScreenShots/adls_storage.png) | ![Forecast CSV](ScreenShots/gold_forecast_output.png) |
 
 ## 📈 Future Improvements
 - Add hyperparameter tuning for LSTM
