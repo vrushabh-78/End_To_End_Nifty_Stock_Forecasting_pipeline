@@ -32,6 +32,10 @@ LSTM + Prophet
 HDFC Forecast Output
 ```
 
+<p align="center">
+  <img src="Architecture/architecture_diagram.png" width="420" alt="Pipeline architecture diagram">
+</p>
+
 Detailed architecture notes and diagrams are available in the [`Architecture`](Architecture) folder.
 
 ## ☁️ Azure Resources
