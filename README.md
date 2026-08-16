@@ -13,25 +13,6 @@ The pipeline collects historical stock market data for HDFC Bank (HDFCBANK.NS), 
 The workflow is orchestrated using Apache Airflow and Azure Data Factory, while Azure Data Lake Storage Gen2 is used for data storage. The architecture is designed to be stock-agnostic — any Nifty-listed ticker can be plugged in with minimal configuration changes.
 
 ## 🏗️ Architecture
-
-```
-Yahoo Finance
-      ↓
-Apache Airflow
-      ↓
-Azure Data Factory
-      ↓
-Azure Databricks
-      ↓
-ADLS Gen2
-      ↓
-Bronze → Silver → Gold
-      ↓
-LSTM + Prophet
-      ↓
-HDFC Forecast Output
-```
-
 <p align="center">
   <img src="Architecture/architecture_diagram.png" width="420" alt="Pipeline architecture diagram">
 </p>
